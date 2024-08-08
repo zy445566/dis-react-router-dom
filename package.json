@@ -1,6 +1,6 @@
 {
   "name": "dis-react-router-dom",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A React router power by react-router-dom with @Decorator",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -18,6 +18,8 @@
     "router",
     "route",
     "decorator",
+    "hook",
+    "hooks",
     "router-dom"
   ],
   "author": "zy445566",
