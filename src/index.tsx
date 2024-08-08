@@ -8,12 +8,12 @@ import * as React from "react";
 
 interface RouteConfig {
   path: string;
-  layout?: React.ReactElement;
+  layout?: React.ComponentType;
   navigate?: NavigateProps;
 }
 
 const routeDataMap: Map<
-  React.ReactElement,
+  React.ComponentType,
   { config: RouteConfig; route: RouteObject }
 > = new Map();
 function finallyRoutes() {
@@ -49,32 +49,33 @@ function finallyRoutes() {
 
 // this is a hooks
 export function useDisRoute(
-  target: React.ReactElement,
-  routeConfig: RouteConfig
+  Component: React.ComponentType,
+  routeConfig: RouteConfig,
+  props: React.Attributes = {}
 ) {
   const route: RouteObject = {
     path: routeConfig.path,
-    element: target,
+    element: <Component {...props} />,
   };
-  routeDataMap.set(target, {
+  routeDataMap.set(Component, {
     config: routeConfig,
     route,
   });
-  return target;
+  return Component;
 }
 
 // this is a decorator for component class
-export function Route(routeConfig: RouteConfig) {
+export function Route(routeConfig: RouteConfig, props: React.Attributes = {}) {
   return function (
-    target: React.ReactElement,
+    Component: React.ComponentType,
     _propertyKey: string,
     _descriptor: PropertyDescriptor
   ) {
     const route: RouteObject = {
       path: routeConfig.path,
-      element: target,
+      element: <Component {...props} />,
     };
-    routeDataMap.set(target, {
+    routeDataMap.set(Component, {
       config: routeConfig,
       route,
     });
