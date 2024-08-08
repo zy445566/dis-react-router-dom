@@ -1,6 +1,6 @@
 {
   "name": "dis-react-router-dom",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A React router power by react-router-dom with @Decorator",
   "main": "dist/index.js",
   "module": "dist/index.js",
