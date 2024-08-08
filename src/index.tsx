@@ -38,7 +38,7 @@ function finallyRoutes() {
           layout.route.children.push(route);
         }
       } else {
-        throw new Error("layout not registed use @Route");
+        throw new Error("layout not registed use @Route or useDisRoute");
       }
     } else {
       routes.push(route);
@@ -47,6 +47,23 @@ function finallyRoutes() {
   return routes;
 }
 
+// this is a hooks
+export function useDisRoute(
+  target: React.ReactElement,
+  routeConfig: RouteConfig
+) {
+  const route: RouteObject = {
+    path: routeConfig.path,
+    element: target,
+  };
+  routeDataMap.set(target, {
+    config: routeConfig,
+    route,
+  });
+  return target;
+}
+
+// this is a decorator for component class
 export function Route(routeConfig: RouteConfig) {
   return function (
     target: React.ReactElement,
