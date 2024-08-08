@@ -1,0 +1,40 @@
+{
+  "name": "dis-react-router-dom",
+  "version": "1.0.0",
+  "description": "A React router power by react-router-dom with @Decorator",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zy445566/dis-react-router-dom.git"
+  },
+  "keywords": [
+    "react",
+    "router",
+    "route",
+    "decorator",
+    "router-dom"
+  ],
+  "author": "zy445566",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zy445566/dis-react-router-dom/issues"
+  },
+  "homepage": "https://github.com/zy445566/dis-react-router-dom#readme",
+  "dependencies": {
+    "@rollup/plugin-typescript": "^11.1.6",
+    "react": "^18.3.1",
+    "react-router-dom": "^6.26.0",
+    "rollup": "^4.20.0",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3"
+  }
+}
