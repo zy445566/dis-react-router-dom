@@ -1,10 +1,11 @@
 {
   "name": "dis-react-router-dom",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "A React router power by react-router-dom with @Decorator",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "scripts": {
     "build": "rollup -c",
     "test": "npm run build"
