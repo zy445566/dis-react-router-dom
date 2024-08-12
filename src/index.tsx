@@ -64,23 +64,23 @@ export function useDisRoute(
   return Component;
 }
 
-// this is a decorator for component class
-export function Route(routeConfig: RouteConfig, props: React.Attributes = {}) {
-  return function (
-    Component: React.ComponentType,
-    _propertyKey: string,
-    _descriptor: PropertyDescriptor
-  ) {
-    const route: RouteObject = {
-      path: routeConfig.path,
-      element: <Component {...props} />,
-    };
-    routeDataMap.set(Component, {
-      config: routeConfig,
-      route,
-    });
-  };
-}
+// this is a decorator for component class (Deprecated)
+// export function Route(routeConfig: RouteConfig, props: React.Attributes = {}) {
+//   return function (
+//     Component: React.ComponentType,
+//     _propertyKey: string,
+//     _descriptor: PropertyDescriptor
+//   ) {
+//     const route: RouteObject = {
+//       path: routeConfig.path,
+//       element: <Component {...props} />,
+//     };
+//     routeDataMap.set(Component, {
+//       config: routeConfig,
+//       route,
+//     });
+//   };
+// }
 
 export function DisRouterDom() {
   return useRoutes(finallyRoutes());

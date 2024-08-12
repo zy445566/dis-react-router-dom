@@ -1,6 +1,6 @@
 # dis-react-router-dom
 
-A React next router power by react-router-dom with Hooks and @Decorator
+A React next router power by react-router-dom with Hooks
 
 # Install
 
@@ -41,17 +41,23 @@ import Layout from "@/layout/Layout/index";
 const Hello: FC = (props) => {
   return <div>Hello {props.name}!</div>;
 };
-// Or @Decorator for React.Component class
-// import { Route } from "dis-react-router-dom";
-// @Route({ path: "hello" })
-// class Hello extends React.Component {...}
-// this need to enable declaration on typescript config
 
 export default useDisRoute(Hello, {
   path: "hello",
   layout: Layout,
   props: { name: "world" },
 });
+
+// Or make lazy
+// @/views/Hello/lazy.ts
+// export default useDisRoute(
+//   React.lazy(() => import("@/views/Hello/index")),
+//   {
+//     path: "hello",
+//     layout: Layout,
+//     props: { name: "world" },
+//   }
+// );
 ```
 
 App.tsx:
@@ -59,6 +65,7 @@ App.tsx:
 ```tsx
 import { DisRouterDom } from "dis-react-router-dom";
 import "@/views/Hello/index"; // enable route component
+// if want to make lazy import "@/views/Hello/lazy"; // enable route component
 
 const App = () => <DisRouterDom />;
 export default App;
